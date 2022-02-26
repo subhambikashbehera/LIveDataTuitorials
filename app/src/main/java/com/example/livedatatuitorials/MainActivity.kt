@@ -17,20 +17,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
-        viewModelProvider=VIewMOdelProvider(125)
+        viewModelProvider=VIewMOdelProvider(125,"dubgghgj")
         mainActivityVIewModel=ViewModelProvider(this,viewModelProvider)[MainActivityVIewModel::class.java]
 
-        mainActivityVIewModel.getTotalValue().observe(this) {
-            binding.textView.text=it.toString()
-        }
-
-
-        binding.apply {
-            button.setOnClickListener {
-             mainActivityVIewModel.getAdditionWithOne()
-            }
-        }
-
+        binding.myVIewModel=mainActivityVIewModel
+        binding.lifecycleOwner=this
 
 
 

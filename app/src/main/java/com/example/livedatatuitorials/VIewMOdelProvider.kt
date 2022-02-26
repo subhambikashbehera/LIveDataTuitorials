@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import java.lang.IllegalArgumentException
 
-class VIewMOdelProvider(var total:Int):ViewModelProvider.Factory {
+class VIewMOdelProvider(var total:Int,var name:String):ViewModelProvider.Factory {
 
 
 
@@ -12,7 +12,7 @@ class VIewMOdelProvider(var total:Int):ViewModelProvider.Factory {
 
         return  when(modelClass){
             MainActivityVIewModel::class.java->{
-                MainActivityVIewModel(total)
+                MainActivityVIewModel(total,name)
             }
             else->throw IllegalArgumentException("error")
         } as T
